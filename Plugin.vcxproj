@@ -116,6 +116,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\PathManip.cpp" />
     <ClCompile Include="src\Plugin.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -123,6 +124,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\PathManip.hpp" />
     <ClInclude Include="src\Plugin.hpp" />
     <ClInclude Include="src\ServerPluginCallbacks.hpp" />
     <ClInclude Include="src\stdafx.hpp" />
