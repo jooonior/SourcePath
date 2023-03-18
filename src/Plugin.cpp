@@ -49,14 +49,3 @@ const char *Plugin::GetPluginDescription(void)
 {
 	return PLUGIN_NAME " v" PLUGIN_VERSION;
 }
-
-CON_COMMAND(greet, "Say hello :)")
-{
-	if (args.ArgC() != 2)
-	{
-		Warning("Usage: greet <name>\n");
-		return;
-	}
-
-	ConMsg("Hello %s!\n", args.Arg(1));
-}
