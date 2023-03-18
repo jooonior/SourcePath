@@ -44,6 +44,20 @@ bool Plugin::Load(CreateInterfaceFn interfaceFactory, CreateInterfaceFn gameServ
 
 	ConVar_Register();
 
+	IVEngineClient *engine = (IVEngineClient *)interfaceFactory(VENGINE_CLIENT_INTERFACE_VERSION, NULL);
+
+	if (engine)
+	{
+		// Plugins are loaded early, so this can be used to modify search paths before
+		// other parts of the engine start initializing and loading in thier files.
+		engine->ExecuteClientCmd("exec sourcepath.cfg");
+	}
+	else
+	{
+		PluginWarning("Unsupported IVEngineClient version, cannot exec plugin CFG.\n");
+	}
+
+
 	return true;
 }
 
