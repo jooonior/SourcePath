@@ -5,6 +5,8 @@
 #include "ServerPluginCallbacks.hpp"
 
 #include <tier1/tier1.h>
+#include <tier2/tier2.h>
+#include <filesystem.h>
 
 #define QUOTE(name) #name
 #define STR(macro) QUOTE(macro)
@@ -32,6 +34,13 @@ bool Plugin::Load(CreateInterfaceFn interfaceFactory, CreateInterfaceFn gameServ
 	PluginMsg("Loading version %s\n", PLUGIN_VERSION);
 
 	ConnectTier1Libraries(&interfaceFactory, 1);
+	ConnectTier2Libraries(&interfaceFactory, 1);
+
+	if (!g_pFullFileSystem)
+	{
+		PluginWarning("Could not connect to the filesystem interface.\n");
+		return false;
+	}
 
 	ConVar_Register();
 
@@ -42,6 +51,7 @@ void Plugin::Unload(void)
 {
 	ConVar_Unregister();
 
+	DisconnectTier2Libraries();
 	DisconnectTier1Libraries();
 }
 
