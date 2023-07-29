@@ -19,7 +19,7 @@ template<typename F>
 static bool MatchPath(const char *path, F &&callback)
 {
 	FileFindHandle_t handle;
-	const char *filename = g_pFullFileSystem->FindFirst(path, &handle);
+	const char *filename = g_pFullFileSystem->FindFirstEx(path, "BASE_PATH", &handle);
 
 	if (!filename)
 		return false;
