@@ -21,6 +21,13 @@ If you want to know more, check your game's `gameinfo.txt` file. It will
 contain a `SearchPaths` section listing what paths are mounted and under what
 IDs. In-game, the `path` command can be used to print this information.
 
+## Download
+
+Here's a direct link to the
+[latest version](https://github.com/jooonior/SourcePath/releases/latest/download/SourcePath.zip).
+Older versions can be found on the
+[releases page](https://github.com/jooonior/SourcePath/releases).
+
 ## Commands
 
 ### `path_append <path> [ids]`
